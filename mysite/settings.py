@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
 
+    'shop'
     'users.apps.UsersConfig',
 ]
 
@@ -84,7 +85,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'auth',
+        'NAME': 'store_assortment',
         'USER': 'django_auth',
         'PASSWORD': 'asdfgh',
         'HOST': 'localhost',
