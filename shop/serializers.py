@@ -1,7 +1,15 @@
-from rest_framework import  serializers
-from .models import Store_Assortment
+from rest_framework import serializers
+from .models import StoreAssortment
+from .models import Store
 
-class Store_AssortmentSerializer(serializers.ModelSerializer):
+
+class StoreAssortmentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Store_Assortment
+        model = StoreAssortment
+        field = '_all_'
+
+
+class StoreSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Store
         field = '_all_'

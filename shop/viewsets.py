@@ -2,6 +2,12 @@ from rest_framework import viewsets
 from . import models
 from . import serializers
 
-class Store_Assortment(viewsets.ModelViewSet):
-    queryset = models.Store_Assortment.objects.all()
-    serializer_class = serializers.Store_AssortmentSerializer
+
+class StoreAssortment(viewsets.ModelViewSet):
+    queryset = models.StoreAssortment.objects.all()
+    serializer_class = serializers.StoreAssortmentSerializer
+
+
+class Store(viewsets.ModelViewSet):
+    queryset = models.Store.objects.all()
+    serializer_class = serializers.StoreSerializer
