@@ -1,13 +1,18 @@
 from django.db import models
 
 
-class StoreAssortment(models.Model):
-    store_id = models.UUIDField(primary_key=True)
-    product = models.CharField(max_length=30)
-    price = models.IntegerField()
-
-
 class Store(models.Model):
-    store_id = models.UUIDField(primary_key=True)
-    store_name = models.CharField(max_length=20)
-    street_name = models.CharField(max_length=40)
+    name = models.CharField(max_length=20)
+    address = models.CharField(max_length=40)
+
+    def __str__(self) -> str:
+        return self.name
+
+
+class Product(models.Model):
+    store = models.ForeignKey(Store, on_delete=models.CASCADE)
+    name = models.CharField(max_length=30)
+    price = models.PositiveIntegerField(help_text='in rubles')
+
+    def __str__(self) -> str:
+        return self.name

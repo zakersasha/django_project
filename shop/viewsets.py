@@ -3,11 +3,11 @@ from . import models
 from . import serializers
 
 
-class StoreAssortment(viewsets.ModelViewSet):
-    queryset = models.StoreAssortment.objects.all()
-    serializer_class = serializers.StoreAssortmentSerializer
+class ProductViewSet(viewsets.ModelViewSet):
+    queryset = models.Product.objects
+    serializer_class = serializers.ProductSerializer
 
 
-class Store(viewsets.ModelViewSet):
-    queryset = models.Store.objects.all()
+class StoreViewSet(viewsets.ModelViewSet):
+    queryset = models.Store.objects
     serializer_class = serializers.StoreSerializer

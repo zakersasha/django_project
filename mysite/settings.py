@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'store_assortment',
+        'NAME': 'auth',
         'USER': 'django_auth',
         'PASSWORD': 'asdfgh',
         'HOST': 'localhost',
