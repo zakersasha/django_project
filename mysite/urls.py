@@ -15,11 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from.router import router
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^user/', include('users.urls')),
-    url(r'shop/', include(router.urls)),
+    url('admin/', admin.site.urls),
 ]
