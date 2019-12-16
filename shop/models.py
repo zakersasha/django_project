@@ -15,7 +15,7 @@ class Shop(models.Model):
 
 
 class Product(models.Model):
-    shop = models.ForeignKey(Shop, on_delete=models.CASCADE)
+    shop = models.ForeignKey(Shop, verbose_name='Магазин', on_delete=models.CASCADE)
     name = models.CharField(verbose_name='Наименование', max_length=30)
     producer_types = (
         (1, 'Кунгурский производитель'),

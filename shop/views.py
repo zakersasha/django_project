@@ -13,6 +13,7 @@ class ProductListView(generics.ListAPIView):
 
 class ProductCreateView(generics.CreateAPIView):
     serializer_class = ProductDetailSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -23,6 +24,7 @@ class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
 
 class ShopCreateView(generics.CreateAPIView):
     serializer_class = ShopDetailSerializer
+    permission_classes = (IsAuthenticated,)
 
 
 class ShopDetailView(generics.RetrieveUpdateDestroyAPIView):
