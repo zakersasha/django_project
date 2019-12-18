@@ -3,6 +3,8 @@ from .models import Product, Shop
 
 
 class ProductDetailSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
     class Meta:
         model = Product
         fields = '__all__'
