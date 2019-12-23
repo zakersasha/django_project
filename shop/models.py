@@ -1,7 +1,7 @@
 from django.db import models
-from django.contrib.auth import get_user_model
+from user.models import User
 
-User = get_user_model()
+User = User()
 
 
 class Shop(models.Model):
@@ -25,4 +25,3 @@ class Product(models.Model):
     producer_type = models.IntegerField(verbose_name='Прозводитель', choices=producer_types)
     release_date = models.DateField(verbose_name='Дата изготовления')
     price = models.DecimalField(verbose_name='Цена', help_text='*в рублях', max_digits=7, decimal_places=2)
-    user = models.ForeignKey(User, verbose_name='Пользователь', on_delete=models.CASCADE)
