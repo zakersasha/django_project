@@ -1,13 +1,11 @@
-from django.urls import path
-from django.contrib import admin
-from .views import *
+from django.urls import path, include
+from shop import views
+from rest_framework import routers
 
+router = routers.DefaultRouter()
+router.register('Products', views.ProductView)
+router.register('Shops', views.ShopView)
 
 urlpatterns = [
-    path('product/create/', ProductCreateView.as_view()),
-    path('products/', ProductListView.as_view()),
-    path('product/detail/<int:pk>/', ProductDetailView.as_view()),
-    path('shop/create/', ShopCreateView.as_view()),
-    path('', ShopListView.as_view()),
-    path('shop/detail/<int:pk>/', ShopDetailView.as_view()),
+    path('', include(router.urls)),
 ]

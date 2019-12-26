@@ -1,31 +1,17 @@
-from rest_framework import generics
-from .serializers import ProductDetailSerializer, ProductListSerializer, ShopDetailSerializer, ShopListSerializer
+from rest_framework import viewsets, permissions
+from .serializers import ProductDetailSerializer, ShopDetailSerializer
 from .models import Product, Shop
 
 
-class ProductListView(generics.ListAPIView):
-    serializer_class = ProductListSerializer
+class ProductView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
-
-
-class ProductCreateView(generics.CreateAPIView):
     serializer_class = ProductDetailSerializer
+    permission_classes = permissions.IsAuthenticatedOrReadOnly
 
 
-class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = ProductDetailSerializer
-    queryset = Product.objects.all()
-
-
-class ShopCreateView(generics.CreateAPIView):
-    serializer_class = ShopDetailSerializer
-
-
-class ShopDetailView(generics.RetrieveUpdateDestroyAPIView):
-    serializer_class = ShopDetailSerializer
+class ShopView(viewsets.ModelViewSet):
     queryset = Shop.objects.all()
+    serializer_class = ShopDetailSerializer
+    permission_classes = permissions.IsAuthenticatedOrReadOnly
 
 
-class ShopListView(generics.ListAPIView):
-    serializer_class = ShopListSerializer
-    queryset = Shop.objects.all()
